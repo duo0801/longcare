@@ -18,7 +18,7 @@ class CreateHss01Table extends Migration
             $table->tinyInteger('scode')->default('1')->comment('狀態（0.離職、1.在職、2.留職停薪）');
             $table->string('hss_rank')->nullable()->comment('職稱');
             $table->string('hssnm')->default('')->comment('姓名');
-            $table->string('hss_gender')->default('m')->comment('性別（m.男性、w.女性、n.中性）');
+            $table->string('hss_gender',1)->default('m')->comment('性別（m.男性、w.女性、n.中性）');
             $table->string('lc_account')->nullable()->comment('長照帳號(abc)');
             $table->date('birth_date')->nullable()->comment('出生年月日');
             $table->string('idcard')->nullable()->comment('身分證字號');

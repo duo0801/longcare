@@ -8,12 +8,12 @@ use App\Models\Traits\HasCreatedUpdatedUser;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Case01 extends Model
+class Hsa01 extends Model
 {
-    use HasCreatedUpdatedUser;
 	use HasDateTimeFormatter;
+    use HasCreatedUpdatedUser;
     use SoftDeletes;
 
-    protected $table = 'case01';
+    protected $table = 'hsa01';
     
 }
