@@ -14,6 +14,8 @@ class CreateServiceItemTable extends Migration
     public function up()
     {
         Schema::create('service_item', function (Blueprint $table) {
+            $table->comment('服務項目單價表');
+
             $table->increments('id');
             $table->string('sino')->default('')->comment('服務代碼');
             $table->string('sinm')->default('')->comment('服務項目');

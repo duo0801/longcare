@@ -14,6 +14,8 @@ class CreateRec01Table extends Migration
     public function up()
     {
         Schema::create('rec01', function (Blueprint $table) {
+            $table->comment('介紹人資料主表(Recommendation)');
+
             $table->increments('id');
             $table->tinyInteger('scode')->default('1')->comment('狀態（0.無效、1.有效）');
             $table->string('recnm')->default('')->comment('姓名');
