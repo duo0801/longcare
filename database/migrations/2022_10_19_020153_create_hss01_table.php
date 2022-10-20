@@ -14,6 +14,8 @@ class CreateHss01Table extends Migration
     public function up()
     {
         Schema::create('hss01', function (Blueprint $table) {
+            $table->comment('居督員資料主表(Home Services Supervisor)');
+
             $table->increments('id');
             $table->tinyInteger('scode')->default('1')->comment('狀態（0.離職、1.在職、2.留職停薪）');
             $table->string('hss_rank')->nullable()->comment('職稱');
@@ -42,8 +44,8 @@ class CreateHss01Table extends Migration
             $table->tinyInteger('trng_flg1')->default('0')->comment('基礎訓練(到職一年內)（0.否、1.是）');
             $table->tinyInteger('trng_flg2')->default('0')->comment('進階訓練(到職三年內)（0.否、1.是）');
             $table->tinyInteger('trng_flg3')->default('0')->comment('成長訓練(到職四年內)（0.否、1.是）');
-            $table->string('created_user')->nullable()->comment('建立人員');
-            $table->string('updated_user')->nullable()->comment('更新人員');
+            $table->integer('created_user')->nullable()->comment('建立人員');
+            $table->integer('updated_user')->nullable()->comment('更新人員');
             $table->timestamps();
             $table->softDeletes();
         });

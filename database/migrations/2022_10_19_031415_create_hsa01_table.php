@@ -14,6 +14,8 @@ class CreateHsa01Table extends Migration
     public function up()
     {
         Schema::create('hsa01', function (Blueprint $table) {
+            $table->comment('居服員資料主表(Home Services Attendant)');
+
             $table->increments('id');
             $table->tinyInteger('scode')->default('1')->comment('狀態（0.離職、1.在職、2.留職停薪）');
             $table->string('hsa_rank')->nullable()->comment('職稱');
@@ -51,8 +53,8 @@ class CreateHsa01Table extends Migration
             $table->string('icetel')->nullable()->comment('緊急聯絡人電話');
             $table->text('remark')->nullable()->comment('備註');
             $table->string('education')->nullable()->comment('學歷');
-            $table->string('created_user')->nullable()->comment('建立人員');
-            $table->string('updated_user')->nullable()->comment('更新人員');
+            $table->integer('created_user')->nullable()->comment('建立人員');
+            $table->integer('updated_user')->nullable()->comment('更新人員');
             $table->timestamps();
             $table->softDeletes();
         });

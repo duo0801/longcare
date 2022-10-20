@@ -14,6 +14,8 @@ class CreateCase01Table extends Migration
     public function up()
     {
         Schema::create('case01', function (Blueprint $table) {
+            $table->comment('個案資料主表');
+
             $table->increments('id');
             $table->tinyInteger('scode')->default('0')->comment('案件狀態（0.未開案、1.已開案、2、作廢、3.結案）');
             $table->string('caseno')->default('')->comment('案號');
@@ -52,8 +54,8 @@ class CreateCase01Table extends Migration
             $table->tinyInteger('dis_flg4')->default('0')->comment('喘息特別從優（0.否、1.是）');
             $table->tinyInteger('dis_flg5')->default('0')->comment('ICF從優（0.否、1.是）');
             $table->tinyInteger('dis_flg6')->default('0')->comment('從優CMS（0.否、1.是）');
-            $table->string('created_user')->nullable()->comment('建立人員');
-            $table->string('updated_user')->nullable()->comment('更新人員');
+            $table->integer('created_user')->nullable()->comment('建立人員');
+            $table->integer('updated_user')->nullable()->comment('更新人員');
             $table->timestamps();
             $table->softDeletes();
         });
